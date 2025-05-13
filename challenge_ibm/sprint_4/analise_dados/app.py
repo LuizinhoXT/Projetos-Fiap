@@ -12,11 +12,11 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Carregar os dados
-customers = spark.read.csv("olist_customers_dataset.csv", header=True, inferSchema=True)
-orders = spark.read.csv("olist_orders_dataset.csv", header=True, inferSchema=True)
-order_items = spark.read.csv("olist_order_items_dataset.csv", header=True, inferSchema=True)
-order_payments = spark.read.csv("olist_order_payments_dataset.csv", header=True, inferSchema=True)
-products = spark.read.csv("olist_products_dataset.csv", header=True, inferSchema=True)
+customers = spark.read.csv("customers_trusted.csv", header=True, inferSchema=True)
+orders = spark.read.csv("order_trusted.csv", header=True, inferSchema=True)
+order_items = spark.read.csv("itens_trusted.csv", header=True, inferSchema=True)
+order_payments = spark.read.csv("paymentas_trusted.csv", header=True, inferSchema=True)
+products = spark.read.csv("products_trusted.csv", header=True, inferSchema=True)
 
 # Merge dos datasets principais
 orders_customers = orders.join(customers, "customer_id", "inner")
